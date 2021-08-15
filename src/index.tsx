@@ -9,6 +9,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
 import * as React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
@@ -44,11 +45,13 @@ const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
-      <HelmetProvider>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </HelmetProvider>
+      <ChakraProvider>
+        <HelmetProvider>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </HelmetProvider>
+      </ChakraProvider>
     </ThemeProvider>
   </Provider>,
   MOUNT_NODE,
