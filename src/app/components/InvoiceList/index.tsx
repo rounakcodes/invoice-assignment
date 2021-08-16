@@ -12,7 +12,7 @@ import searchIcon from '../../assets/search-icon.png';
 
 export function InvoiceList() {
   return (
-    <>
+    <Box backgroundColor="#2F3740">
       <Box p="2">
         <InputGroup>
           <InputLeftElement
@@ -70,6 +70,6 @@ export function InvoiceList() {
           </Box>
         </Flex>
       </Box>
-    </>
+    </Box>
   );
 }
