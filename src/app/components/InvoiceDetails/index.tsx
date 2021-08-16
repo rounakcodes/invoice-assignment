@@ -22,7 +22,10 @@ import {
   Th,
   Td,
 } from '@chakra-ui/react';
-import print from '../../assets/printer-blue.png';
+import { sizes } from '../../../styles/media';
+import printIconSmall from '../../assets/printer-blue.png';
+import printIconMedium from '../../assets/printer-blue@2x.png';
+import printIconLarge from '../../assets/printer-blue@3x.png';
 
 const CardStyle = {
   background: '#FFFFFF',
@@ -82,7 +85,13 @@ export function InvoiceDetails() {
           </Stat>
           <Button
             color="#5B8DCF"
-            rightIcon={<img src={print}></img>}
+            rightIcon={
+              <img
+                srcSet={`${printIconSmall} ${sizes.small}w, ${printIconMedium} ${sizes.medium}w, ${printIconLarge} ${sizes.large}w`}
+                style={{ maxWidth: '20px' }}
+                alt="print"
+              ></img>
+            }
             variant="outline"
             ml="20px"
             fontSize="x-small"

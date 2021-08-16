@@ -28,8 +28,13 @@ import {
   StatLabel,
   StatHelpText,
 } from '@chakra-ui/react';
-import enterIcon from '../../assets/enter-icon.png';
-import plusIcon from '../../assets/plus-white.png';
+import { sizes } from '../../../styles/media';
+import plusIconSmall from '../../assets/plus-white.png';
+import plusIconMedium from '../../assets/plus-white@2x.png';
+import plusIconLarge from '../../assets/plus-white@3x.png';
+import enterIconSmall from '../../assets/enter-icon.png';
+import enterIconMedium from '../../assets/enter-icon@2x.png';
+import enterIconLarge from '../../assets/enter-icon@3x.png';
 
 const PlusButtonStyle = {
   borderRadius: '50%',
@@ -55,7 +60,11 @@ export const NewInvoiceModal = () => {
   return (
     <>
       <Button onClick={onOpen} __css={PlusButtonStyle}>
-        <img src={plusIcon} />
+        <img
+          srcSet={`${plusIconSmall} ${sizes.small}w, ${plusIconMedium} ${sizes.medium}w, ${plusIconLarge} ${sizes.large}w`}
+          style={{ maxWidth: '20px' }}
+          alt="add"
+        />
       </Button>
       <Modal size="xl" isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -174,7 +183,13 @@ export const NewInvoiceModal = () => {
                   }}
                   variant="outline"
                   size="xs"
-                  leftIcon={<img src={enterIcon}></img>}
+                  leftIcon={
+                    <img
+                      srcSet={`${enterIconSmall} ${sizes.small}w, ${enterIconMedium} ${sizes.medium}w, ${enterIconLarge} ${sizes.large}w`}
+                      alt="enter"
+                      style={{ maxWidth: '15px' }}
+                    ></img>
+                  }
                   pl="15px"
                 />
               </Box>

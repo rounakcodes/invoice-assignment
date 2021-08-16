@@ -8,7 +8,10 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react';
-import searchIcon from '../../assets/search-icon.png';
+import { sizes } from '../../../styles/media';
+import searchIconSmall from '../../assets/search-icon.png';
+import searchIconMedium from '../../assets/search-icon@2x.png';
+import searchIconLarge from '../../assets/search-icon@3x.png';
 
 export function InvoiceList() {
   return (
@@ -17,7 +20,13 @@ export function InvoiceList() {
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
-            children={<img src={searchIcon} />}
+            children={
+              <img
+                srcSet={`${searchIconSmall} ${sizes.small}w, ${searchIconMedium} ${sizes.medium}w, ${searchIconLarge} ${sizes.large}w`}
+                style={{ maxWidth: '15px' }}
+                alt="search"
+              />
+            }
           />
           <Input
             style={{

@@ -21,8 +21,13 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react';
-import skipIcon from '../../assets/skip-icon.png';
-import editIcon from '../../assets/edit.png';
+import { sizes } from '../../../styles/media';
+import skipIconSmall from '../../assets/skip-icon.png';
+import skipIconMedium from '../../assets/skip-icon@2x.png';
+import skipIconLarge from '../../assets/skip-icon@3x.png';
+import editIconSmall from '../../assets/edit.png';
+import editIconMedium from '../../assets/edit@2x.png';
+import editIconLarge from '../../assets/edit@3x.png';
 
 export const CustomerInfoModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +37,13 @@ export const CustomerInfoModal = () => {
       <Button
         onClick={onOpen}
         color="#5B8DCF"
-        rightIcon={<img src={editIcon}></img>}
+        rightIcon={
+          <img
+            srcSet={`${editIconSmall} ${sizes.small}w, ${editIconMedium} ${sizes.medium}w, ${editIconLarge} ${sizes.large}w`}
+            style={{ maxWidth: '20px' }}
+            alt="edit"
+          ></img>
+        }
         variant="outline"
         fontSize="x-small"
         style={{
@@ -73,7 +84,13 @@ export const CustomerInfoModal = () => {
                   color="#336399"
                   size="xs"
                   borderRadius="0"
-                  rightIcon={<img src={skipIcon} />}
+                  rightIcon={
+                    <img
+                      srcSet={`${skipIconSmall} ${sizes.small}w, ${skipIconMedium} ${sizes.medium}w, ${skipIconLarge} ${sizes.large}w`}
+                      style={{ maxWidth: '10px' }}
+                      alt="skip"
+                    />
+                  }
                   fontSize="12px"
                   px="20px"
                   onClick={onClose}
