@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { NewInvoiceModal } from '../../components/NewInvoiceModal';
+import { InvoiceList } from '../../components/InvoiceList';
 import print from '../../assets/printer-blue.png';
 import {
   Spacer,
@@ -8,9 +9,6 @@ import {
   Button,
   Divider,
   Box,
-  InputGroup,
-  InputLeftElement,
-  Input,
   Heading,
   StatLabel,
   StatHelpText,
@@ -24,7 +22,6 @@ import {
   Th,
   Td,
 } from '@chakra-ui/react';
-import searchIcon from '../../assets/search-icon.png';
 
 const HeadingStyle = {
   background: '#336399',
@@ -64,63 +61,7 @@ export function HomePage() {
         }}
       >
         <Box backgroundColor="#2F3740">
-          <Box p="2">
-            <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-                children={<img src={searchIcon} />}
-              />
-              <Input
-                style={{
-                  borderRadius: '30px',
-                  color: 'white',
-                  border: 'none',
-                  background: '#353E48',
-                }}
-                type="tel"
-                placeholder="Search..."
-              />
-            </InputGroup>
-          </Box>
-          <Box py="4" px="6" color="#FFFFFF">
-            <Text fontSize="xx-small" pb="2">
-              INVOICES
-            </Text>
-            <Flex fontSize="small">
-              <Box h="60px">
-                <Text mb="2">INV # - 1122</Text>
-                <Text fontSize={12}>Items - 05</Text>
-                <Text fontSize={12} fontWeight="bold" color="#5B8DCF">
-                  Naveen Ramdan
-                </Text>
-              </Box>
-              <Spacer />
-              <Box h="60px">
-                <Text
-                  style={{
-                    textAlign: 'right',
-                    position: 'relative',
-                    top: '2px',
-                  }}
-                  fontSize={10}
-                  isTruncated
-                  w="120px"
-                >
-                  11:35 AM - Today
-                </Text>
-                <Text
-                  mt="5"
-                  style={{
-                    textAlign: 'right',
-                    position: 'relative',
-                    top: '5px',
-                  }}
-                >
-                  1240
-                </Text>
-              </Box>
-            </Flex>
-          </Box>
+          <InvoiceList />
         </Box>
         <Box flex="1" mb="8" p="8">
           <Text fontSize="xs" mb="4">
