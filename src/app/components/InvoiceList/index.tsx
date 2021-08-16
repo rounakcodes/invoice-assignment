@@ -14,7 +14,7 @@ import searchIconSmall from '../../assets/search-icon.png';
 import searchIconMedium from '../../assets/search-icon@2x.png';
 import searchIconLarge from '../../assets/search-icon@3x.png';
 
-interface InvoiceList {
+interface InvoiceListProps {
   customerName: string;
   invoiceNumber: Number;
   countOfItems: Number;
@@ -22,7 +22,7 @@ interface InvoiceList {
   date: string;
 }
 interface Props {
-  data: InvoiceList[];
+  data: InvoiceListProps[];
 }
 
 export function InvoiceList(props: Props) {
