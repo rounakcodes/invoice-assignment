@@ -22,10 +22,10 @@ export function App() {
     <BrowserRouter>
       <Helmet
         titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
+        defaultTitle="Invoice Application"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="A Invoicing Application" />
       </Helmet>
 
       <Switch>
