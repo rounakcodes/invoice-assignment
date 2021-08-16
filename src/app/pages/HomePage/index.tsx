@@ -4,6 +4,7 @@ import { NewInvoiceModal } from '../../components/NewInvoiceModal';
 import { InvoiceList } from '../../components/InvoiceList';
 import { InvoiceDetails } from '../../components/InvoiceDetails';
 import { Flex, Heading } from '@chakra-ui/react';
+import InvoiceListData from '../../data/invoiceList';
 
 const HeadingStyle = {
   background: '#336399',
@@ -26,7 +27,7 @@ export function HomePage() {
         <NewInvoiceModal />
       </Heading>
       <Flex height="100vh">
-        <InvoiceList />
+        <InvoiceList data={InvoiceListData} />
         <InvoiceDetails />
       </Flex>
     </>

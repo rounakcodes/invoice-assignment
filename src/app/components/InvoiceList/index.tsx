@@ -7,13 +7,25 @@ import {
   InputLeftElement,
   Input,
   Text,
+  Divider,
 } from '@chakra-ui/react';
 import { sizes } from '../../../styles/media';
 import searchIconSmall from '../../assets/search-icon.png';
 import searchIconMedium from '../../assets/search-icon@2x.png';
 import searchIconLarge from '../../assets/search-icon@3x.png';
 
-export function InvoiceList() {
+interface InvoiceList {
+  customerName: string;
+  invoiceNumber: Number;
+  countOfItems: Number;
+  amount: Number;
+  date: string;
+}
+interface Props {
+  data: InvoiceList[];
+}
+
+export function InvoiceList(props: Props) {
   return (
     <Box backgroundColor="#2F3740">
       <Box p="2">
@@ -44,40 +56,47 @@ export function InvoiceList() {
         <Text fontSize="xx-small" pb="2">
           INVOICES
         </Text>
-        <Flex fontSize="small">
-          <Box h="60px">
-            <Text mb="2">INV # - 1122</Text>
-            <Text fontSize={12}>Items - 05</Text>
-            <Text fontSize={12} fontWeight="bold" color="#5B8DCF">
-              Naveen Ramdan
-            </Text>
-          </Box>
-          <Spacer />
-          <Box h="60px">
-            <Text
-              style={{
-                textAlign: 'right',
-                position: 'relative',
-                top: '2px',
-              }}
-              fontSize={10}
-              isTruncated
-              w="120px"
-            >
-              11:35 AM - Today
-            </Text>
-            <Text
-              mt="5"
-              style={{
-                textAlign: 'right',
-                position: 'relative',
-                top: '5px',
-              }}
-            >
-              1240
-            </Text>
-          </Box>
-        </Flex>
+        {props.data.map(invoice => {
+          return (
+            <>
+              <Flex fontSize="small">
+                <Box h="60px">
+                  <Text mb="2">{`INV # - ${invoice.invoiceNumber}`}</Text>
+                  <Text fontSize={12}>{`Items - ${invoice.countOfItems}`}</Text>
+                  <Text fontSize={12} fontWeight="bold" color="#5B8DCF">
+                    {invoice.customerName}
+                  </Text>
+                </Box>
+                <Spacer />
+                <Box h="60px">
+                  <Text
+                    style={{
+                      textAlign: 'right',
+                      position: 'relative',
+                      top: '2px',
+                    }}
+                    fontSize={10}
+                    isTruncated
+                    w="120px"
+                  >
+                    {invoice.date}
+                  </Text>
+                  <Text
+                    mt="5"
+                    style={{
+                      textAlign: 'right',
+                      position: 'relative',
+                      top: '5px',
+                    }}
+                  >
+                    ₹ {invoice.amount}
+                  </Text>
+                </Box>
+              </Flex>
+              <Divider mt="4" mb="4" />
+            </>
+          );
+        })}
       </Box>
     </Box>
   );
